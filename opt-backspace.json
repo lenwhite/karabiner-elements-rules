@@ -1,0 +1,37 @@
+{
+    "description": "Change Cmd+Backspace/Delete to Option+Backspace/Delete",
+    "manipulators": [
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "delete_or_backspace",
+                "modifiers": {
+                    "mandatory": ["command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["option"]
+                }
+            ]
+        },
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "delete_forward",
+                "modifiers": {
+                    "mandatory": ["command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "delete_forward",
+                    "modifiers": ["option"]
+                }
+            ]
+        }
+    ]
+}

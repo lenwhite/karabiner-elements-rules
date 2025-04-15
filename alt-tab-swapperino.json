@@ -1,0 +1,72 @@
+{
+    "description": "Combined: Ctrl+Shift->Opt+Shift, Ctrl+Tab->Opt+Tab, Cmd+Tab->Ctrl+Tab",
+    "manipulators": [
+        {
+            "from": { "key_code": "left_control" },
+            "to": [
+                {
+                    "key_code": "left_control",
+                    "lazy": true
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "type": "event_changed_if",
+                    "value": false
+                }
+            ],
+            "from": {
+                "key_code": "left_shift",
+                "modifiers": { "mandatory": ["left_control"] }
+            },
+            "to": [
+                {
+                    "key_code": "left_shift",
+                    "modifiers": ["left_option"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "type": "event_changed_if",
+                    "value": false
+                }
+            ],
+            "from": {
+                "key_code": "tab",
+                "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "tab",
+                    "modifiers": ["left_option"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "tab",
+                "modifiers": {
+                    "mandatory": ["command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "tab",
+                    "modifiers": ["control"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
