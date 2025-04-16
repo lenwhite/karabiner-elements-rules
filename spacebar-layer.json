@@ -3,7 +3,7 @@
   "manipulators": [
     {
       "type": "basic",
-      "from": { 
+      "from": {
         "key_code": "spacebar",
         "modifiers": { "optional": ["any"] }
       },
@@ -63,6 +63,16 @@
               "value": 1
             }
           ]
+        },
+        {
+          "key_code": "k",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
+            }
+          ]
         }
       ],
       "conditions": [
@@ -95,6 +105,16 @@
               "type": "variable_if",
               "name": "spacebar_modifier",
               "value": 1
+            }
+          ]
+        },
+        {
+          "key_code": "o",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
             }
           ]
         }
@@ -131,6 +151,16 @@
               "value": 1
             }
           ]
+        },
+        {
+          "key_code": "semicolon",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
+            }
+          ]
         }
       ],
       "conditions": [
@@ -163,6 +193,16 @@
               "type": "variable_if",
               "name": "spacebar_modifier",
               "value": 1
+            }
+          ]
+        },
+        {
+          "key_code": "l",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
             }
           ]
         }
@@ -201,6 +241,16 @@
               "value": 1
             }
           ]
+        },
+        {
+          "key_code": "p",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
+            }
+          ]
         }
       ],
       "conditions": [
@@ -235,6 +285,16 @@
               "type": "variable_if",
               "name": "spacebar_modifier",
               "value": 1
+            }
+          ]
+        },
+        {
+          "key_code": "i",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
             }
           ]
         }
@@ -273,6 +333,16 @@
               "value": 1
             }
           ]
+        },
+        {
+          "key_code": "q",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
+            }
+          ]
         }
       ],
       "conditions": [
@@ -305,6 +375,16 @@
               "type": "variable_if",
               "name": "spacebar_modifier",
               "value": 1
+            }
+          ]
+        },
+        {
+          "key_code": "w",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
             }
           ]
         }
@@ -343,6 +423,16 @@
               "value": 1
             }
           ]
+        },
+        {
+          "key_code": "e",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
+            }
+          ]
         }
       ],
       "conditions": [
@@ -379,6 +469,16 @@
               "value": 1
             }
           ]
+        },
+        {
+          "key_code": "a",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
+            }
+          ]
         }
       ],
       "conditions": [
@@ -411,6 +511,16 @@
               "type": "variable_if",
               "name": "spacebar_modifier",
               "value": 1
+            }
+          ]
+        },
+        {
+          "key_code": "s",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
             }
           ]
         }
@@ -447,6 +557,16 @@
               "type": "variable_if",
               "name": "spacebar_modifier",
               "value": 1
+            }
+          ]
+        },
+        {
+          "key_code": "d",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 0
             }
           ]
         }
