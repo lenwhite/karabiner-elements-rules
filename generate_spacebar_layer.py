@@ -85,6 +85,38 @@ def generate_spacebar_manipulator():
     }
 
 
+def generate_simultaneous_manipulator(from_key, to_key, to_modifiers=None):
+    """Generates a manipulator for a key within the spacebar layer based on temp.json structure."""
+
+    SEND_REMAPPED_KEY = {
+        "key_code": to_key,
+        **HALT,
+    }
+
+    if to_modifiers:
+        SEND_REMAPPED_KEY["modifiers"] = to_modifiers
+
+    return {
+        "type": "basic",
+        "from": {
+            "simultaneous": [{"key_code": "spacebar"}, {"key_code": from_key}],
+            "modifiers": {"optional": ["any"]},
+            "simultaneous_options": {
+                "key_down_order": "strict",
+                "key_up_order": "strict_inverse",
+                "to_after_key_up": [
+                    DEACTIVATE_LAYER,
+                ],
+            },
+        },
+        "to": [
+            ACTIVATE_LAYER,
+            SEND_REMAPPED_KEY,
+        ],
+        "parameters": {"basic.simultaneous_threshold_milliseconds": 500},
+    }
+
+
 def generate_layer_key_manipulator(from_key, to_key, to_modifiers=None):
     """Generates a manipulator for a key within the spacebar layer based on temp.json structure."""
 
@@ -149,13 +181,19 @@ def main():
         # "e": ("right_arrow", ["left_shift", "left_option"]),
     }
 
-    manipulators = [generate_spacebar_manipulator()]
+    manipulators = []
 
-    # Generate manipulators by iterating through the merged mappings
-    for from_key, (to_key, modifiers) in mappings.items():
-        manipulators.append(
-            generate_layer_key_manipulator(from_key, to_key, to_modifiers=modifiers)
-        )
+    manipulators.extend(
+        generate_simultaneous_manipulator(from_key, to_key, to_modifiers)
+        for from_key, (to_key, to_modifiers) in mappings.items()
+    )
+
+    manipulators.append(generate_spacebar_manipulator())
+
+    manipulators.extend(
+        generate_layer_key_manipulator(from_key, to_key, to_modifiers=modifiers)
+        for from_key, (to_key, modifiers) in mappings.items()
+    )
 
     output_json = {
         "description": "Spacebar layer: Navigation keys (arrows, word, select, home/end, pgup/dn)",
