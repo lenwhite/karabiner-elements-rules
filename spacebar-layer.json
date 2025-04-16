@@ -3,18 +3,18 @@
   "manipulators": [
     {
       "type": "basic",
-      "from": {
+      "from": { 
         "key_code": "spacebar",
         "modifiers": { "optional": ["any"] }
       },
       "to_if_alone": [
-        { "key_code": "spacebar", "halt": true },
         {
           "set_variable": {
             "name": "spacebar_modifier",
             "value": 0
           }
-        }
+        },
+        { "key_code": "spacebar", "halt": true }
       ],
       "to": [
         {
@@ -32,17 +32,37 @@
           }
         }
       ],
+      "to_delayed_action": {
+        "to_if_canceled": [
+          {
+            "key_code": "spacebar",
+            "modifiers": ["any"]
+          }
+        ]
+      },
       "parameters": {
-        "basic.to_if_alone_timeout_milliseconds": 500
+        "basic.to_delayed_action_delay_milliseconds": 100
       }
     },
     {
       "from": {
         "key_code": "k"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "left_arrow"
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "left_arrow",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -52,15 +72,31 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "o"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "up_arrow"
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "up_arrow",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -70,15 +106,31 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "semicolon"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "right_arrow"
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "right_arrow",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -88,15 +140,31 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "l"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "down_arrow"
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "down_arrow",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -106,16 +174,33 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "p"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "right_arrow",
           "modifiers": ["left_option"]
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["left_option"],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -125,16 +210,33 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "i"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "left_arrow",
           "modifiers": ["left_option"]
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["left_option"],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -144,16 +246,33 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "q"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "left_arrow",
           "modifiers": ["left_option", "left_shift"]
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["left_option", "left_shift"],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -163,15 +282,31 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "w"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "page_up"
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "page_up",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -181,16 +316,33 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "e"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "right_arrow",
           "modifiers": ["left_option", "left_shift"]
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["left_option", "left_shift"],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -200,16 +352,33 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "a"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "left_arrow",
           "modifiers": ["fn"]
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["fn"],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -219,15 +388,31 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "s"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "page_down"
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "page_down",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -237,16 +422,33 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     },
     {
       "from": {
         "key_code": "d"
       },
-      "to": [
+      "to_if_held_down": [
         {
           "key_code": "right_arrow",
           "modifiers": ["fn"]
+        }
+      ],
+      "to_after_key_up": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["fn"],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacebar_modifier",
+              "value": 1
+            }
+          ]
         }
       ],
       "conditions": [
@@ -256,6 +458,10 @@
           "value": 1
         }
       ],
+      "parameters": {
+        "basic.to_delayed_action_delay_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 100
+      },
       "type": "basic"
     }
   ]
