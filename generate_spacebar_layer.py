@@ -57,7 +57,7 @@ def generate_spacebar_manipulator():
                 SEND_SPACEBAR_KEYCODE_AND_HALT,
             ]
         },
-        "parameters": {"basic.to_delayed_action_delay_milliseconds": 500},
+        "parameters": {"basic.to_delayed_action_delay_milliseconds": 200},
     }
 
 
@@ -88,7 +88,7 @@ def generate_simultaneous_manipulator(from_key, to_key, to_modifiers=None):
             ACTIVATE_LAYER,
             SEND_REMAPPED_KEY,
         ],
-        "parameters": {"basic.simultaneous_threshold_milliseconds": 200},
+        "parameters": {"basic.simultaneous_threshold_milliseconds": 500},
     }
 
 
@@ -132,6 +132,19 @@ def main():
         # select words
         "q": ("left_arrow", ["left_shift", "left_option"]),
         "e": ("right_arrow", ["left_shift", "left_option"]),
+        # function key
+        "1": ("f1", None),
+        "2": ("f2", None),
+        "3": ("f3", None),
+        "4": ("f4", None),
+        "5": ("f5", None),
+        "6": ("f6", None),
+        "7": ("f7", None),
+        "8": ("f8", None),
+        "9": ("f9", None),
+        "0": ("f10", None),
+        "hyphen": ("f11", None),
+        "equal_sign": ("f12", None),
     }
 
     manipulators = []
